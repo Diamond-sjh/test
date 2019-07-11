@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 100%;
+    height: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content::after {
+    content: '';
+    display: none;
+    clear: both;
+    zoom: 1;
+}
+
+.content .left,
+.content .right {
+    background-color: #FCFAF7;
+    border: 1px solid #ccc
+}
+
+.content .left {
+    float: left;
+    width: 60%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.content .right {
+    float: right;
+    width: 30%;
+    height: 100%;
+    padding: 10px 20px;
+}
+
+.tTop {
+    height: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    line-height: 40px;
+}
+
+.allBtn {
+    width: 8%;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #7F3528;
+    font-weight: 700;
+}
+
+.allBtn:hover {
+    cursor: pointer;
+}
+
+.bTable table {
+    width: 100%;
+}
+
+.bTable table a {
+    text-decoration: none;
+    color: #7F3528;
+}
+
+.gray {
+    color: #ccc;
+}
+
+.bTable thead tr {
+    background-color: #E9DDD8;
+    height: 40px;
+}
+
+.bTable tbody tr {
+    text-align: center;
+    height: 40px;
+}
+.bTable tbody tr td:last-child {
+    width: 85px;
+}
+
+.right h5 {
+    color: #7F3528;
+    margin-bottom: 20px;
+}
+
+.btns {
+    margin-bottom: 20px;
+}
+
+.btns button {
+    width: 80px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    color: #7F3528;
+    font-weight: 700;
+}
+
+.btns button:hover {
+    cursor: pointer;
+}
+
+.lTable table {
+    width: 100%;
+    text-align: center;
+}
+
+.lTable table input {
+    width: 20px;
+    height: 20px;
+}
+
+.lTable table thead {
+    background-color: #E8DDD8;
+}
+
+.lTable table tr {
+    height: 40px;
+}
+
+.lTable table tbody a {
+    text-decoration: none;
+    color: #7F3528;
+}
+
+.lTable table tbody tr td:nth-child(3) {
+    font-size: 30px;
+    /* width: 85px; */
+}
+
+.lTable table thead tr th:first-child {
+    width: 55px;
+}
+
+.lTable table thead tr th:nth-child(3) {
+    width: 85px;
+}
