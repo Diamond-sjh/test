@@ -1,0 +1,33 @@
+/*
+* @Author: dhl
+* @Date:   2018-10-19 17:59:37
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-10-19 18:02:58
+*/
+body,p,h3,h4,h5,h6,ul,ol,dl,dt,dd,li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	color: #666;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+}
+
+img,input {
+	border: 0 none;
+	outline-style: none;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}

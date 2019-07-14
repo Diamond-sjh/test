@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    input {
+      outline: none;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding-left: 10px;
+    }
+
+    .box {
+      width: 500px;
+      height: 300px;
+      background: #f6f7f9;
+      margin: 30px auto;
+      overflow: hidden;
+      padding-left: 10px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .box p {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 50px;
+      padding-bottom: 30px;
+    }
+
+    .box select {
+      width: 170px;
+      height: 45px;
+      border-radius: 10px;
+      padding-left: 15px;
+      outline: none;
+    }
+
+    .box input[type="tel"] {
+      width: 300px;
+      height: 45px;
+      box-sizing: border-box;
+    }
+
+    .box input[type="text"],
+    .box input[type="password"] {
+      width: 475px;
+      height: 45px;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
+
+    .box span {
+      position: absolute;
+      right: 40px;
+      top: 145px;
+      color: #5098e4;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p>找回密码</p>
+    <select>
+      <option>+86</option>
+      <option>+852</option>
+      <option>+853</option>
+      <option>+81</option>
+      <option>+82</option>
+      <option>+1</option>
+    </select>
+    <input type="tel" placeholder="手机号">
+    <input type="text" placeholder="6位数字验证码" maxlength="6">
+    <span class="time">免费获取验证码</span>
+    <input type="password" placeholder="11-20位数字字母组合">
+  </div>
+
+  <script>
+    // 点击span开始计时，innertext变为“nS重新发送”,计时结束innertext变为“重新获取验证码”，可在此点击计时。
+    // ----------------------------------------获取元素
+    var span = document.querySelector('.time');
+    // ----------------------------------------绑定点击事件
+    // 定义一个计时开始时间
+    span.onclick = function () {
+      getCaptcha(span);
+    }
+    
+    // 封装函数
+    function getCaptcha(btn) {
+      var n = 5;
+      btn.onclick = null;
+      btn.innerText = n + 's重新发送';
+      var dsq = setInterval(function () {
+        n--;
+        if (n >= 0) {
+          btn.innerText = n + 's重新发送';
+        }
+        if (n == 0) {
+          btn.innerText = '重新获取验证码';
+          btn.onclick = function () {
+            getCaptcha(btn);
+          }
+          window.clearInterval(dsq);
+        }
+      }, 1000)
+    }
+  </script>
+</body>
+
+</html>

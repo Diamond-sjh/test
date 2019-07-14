@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./base.css">
+  <style>
+    body {
+      background: #000;
+    }
+
+    a {
+      display: block;
+      width: 150px;
+      line-height: 30px;
+      margin: 10px auto;
+      font-size: 16px;
+      color: #fff;
+      background: goldenrod;
+      text-align: center;
+      border-radius: 15px;
+    }
+
+    a:hover {
+      background: gold;
+      color: #666;
+    }
+
+    /* ul {
+      background: #ccc;
+    } */
+    ul li {
+      float: left;
+      /* background: pink; */
+      margin-top: 20px;
+      transition: all 1s;
+    }
+
+    li:hover {
+      transform: scale(1.3);
+      z-index: 20;
+    }
+
+    ul li img {
+      display: block;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="w">
+    <a href="javascript:">创建英雄列表</a>
+    <ul class="clearfix">
+      <img src="../代码/案例/创建英雄列表/uploads/heros/" alt="">
+    </ul>
+  </div>
+  <script>
+    var datas = [
+      { name: '司马懿', imgSrc: '01.jpg' },
+      { name: '女娲', imgSrc: '02.jpg' },
+      { name: '百里守约', imgSrc: '03.jpg' },
+      { name: '亚瑟', imgSrc: '04.jpg' },
+      { name: '虞姬', imgSrc: '05.jpg' },
+      { name: '张良', imgSrc: '06.jpg' },
+      { name: '安其拉', imgSrc: '07.jpg' },
+      { name: '李白', imgSrc: '08.jpg' },
+      { name: '阿珂', imgSrc: '09.jpg' },
+      { name: '墨子', imgSrc: '10.jpg' },
+      { name: '鲁班', imgSrc: '11.jpg' },
+      { name: '嬴政', imgSrc: '12.jpg' },
+      { name: '孙膑', imgSrc: '13.jpg' },
+      { name: '周瑜', imgSrc: '14.jpg' },
+      { name: '老夫子', imgSrc: '15.jpg' },
+      { name: 'XXX', imgSrc: '16.jpg' },
+      { name: '扁鹊', imgSrc: '17.jpg' },
+      { name: 'XXX', imgSrc: '18.jpg' },
+      { name: 'XXX', imgSrc: '19.jpg' },
+      { name: 'XXX', imgSrc: '20.jpg' }
+    ];
+    var link = document.querySelector('a');
+    var ul = document.querySelector('ul');
+    link.onclick = function () {
+      for (var i = 0; i < datas.length; i++) {
+        var li = document.createElement('li');
+        ul.appendChild(li);
+        var img = document.createElement('img');
+        li.appendChild(img);
+        img.src = '../代码/案例/创建英雄列表/uploads/heros/' + datas[i].imgSrc;
+        img.title = datas[i].name;
+      }
+    }
+  </script>
+</body>
+
+</html>

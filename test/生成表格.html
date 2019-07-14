@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./base.css">
+  <style>
+    body {
+      background: green;
+    }
+
+    table {
+      width: 800px;
+      margin: 10px auto;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    table caption {
+      font-size: 32px;
+      line-height: 80px;
+      color: #fff;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      line-height: 28px;
+      border: 1px solid #ccc;
+    }
+
+    thead tr th {
+      background: purple;
+      color: gold;
+      font-size: 20px;
+    }
+
+    tbody tr td {
+      background: #fff;
+      font-size: 16px;
+    }
+
+    tbody tr td a {
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <!-- <table>
+      <caption>就业榜</caption>
+    </table> -->
+  </div>
+  <script>
+    // 后端的数据1
+    var heads1 = ['姓名', '年龄', '性别', '学号', '薪资', '城市', '操作'];
+    var datas1 = [
+      { name: '欧阳霸天', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '上海' },
+      { name: '令狐霸天', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '北京' },
+      { name: '诸葛霸天', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' },
+      { name: '欧阳炸炸', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' },
+      { name: '欧阳炸炸', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' },
+      { name: '欧阳炸炸1', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' },
+      { name: '欧阳炸炸2', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' },
+      { name: '欧阳炸炸3', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' },
+      { name: '欧阳炸炸4', age: 19, gender: '男', stuId: '1001', salary: '20000', city: '南京' }
+
+    ];
+
+    // --------------------------------------添加表格
+    var div = document.querySelector('.box');
+    var table = document.createElement('table');
+    div.appendChild(table);
+
+
+    // --------------------------------------添加表头
+    var caption = document.createElement('caption');
+    table.appendChild(caption);
+    caption.innerText = '就业榜';
+
+
+    // --------------------------------------添加thead
+    var thead = document.createElement('thead');
+    table.appendChild(thead);
+    // -------------------------添加tr
+    var theadTr = document.createElement('tr');
+    thead.appendChild(theadTr);
+    // -------------------------添加th
+    for (var i = 0; i < heads1.length; i++) {
+      var th = document.createElement('th');
+      theadTr.appendChild(th);
+      th.innerText = heads1[i];
+    }
+
+
+    // --------------------------------------添加tbody
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+    // -------------------------添加tr
+    for (var i = 0; i < datas1.length; i++) {
+      var tbodyTr = document.createElement('tr');
+      tbody.appendChild(tbodyTr);
+      // -----------------------添加td
+      for (key in datas1[i]) {
+        var td = document.createElement('td');
+        tbodyTr.appendChild(td);
+        td.innerText = datas1[i][key];
+      }
+      // ----------------------添加a标签（删除）
+      var lastTd = document.createElement('td');
+      tbodyTr.appendChild(lastTd);
+      lastTd.innerHTML = '<a href="javascript:">删除</a>';
+    }
+
+
+
+
+    // -------------------------------------------------点击删除一行，方法一
+    // var links = document.querySelectorAll('tbody tr td a');
+    // for (var i = 0; i < links.length; i++) {
+    //   links[i].onclick = function () {
+    //     var isRemove = confirm('确认删除？');
+    //     if (isRemove) {
+    //       this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+    //     }
+    //   }
+    // }
+
+    // -------------------------------------------------点击删除一行，方法二
+    tbody.onclick = function (e) {
+      // console.log(e.target.nodeName)
+      if (e.target.nodeName == 'A') {
+        var isRemove = confirm('确认删除？');
+        if (isRemove) {
+          e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

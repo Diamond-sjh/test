@@ -1,0 +1,89 @@
+/*初始化css*/
+/*清除默认样式*/
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+input {
+  outline: 0;
+  border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+em,
+i {
+  font-style: normal;
+}
+img {
+  border: 0; /*清除ie6默认的边框*/
+  /* vertical-align: middle; */ /*清除图片底部的缝隙*/
+}
+/*常用的样式*/
+body {
+  font: 14px arial, "microsoft yahei";
+  line-height: 14px;
+  color: #666;
+}
+.w {
+  width: 500px;
+  margin: 0 auto;
+}
+a {
+  color: #666;
+}
+a:hover {
+  color: #aaa;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+.f12 {
+  font-size: 12px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f20 {
+  font-size: 20px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f24 {
+  font-size: 24px;
+}

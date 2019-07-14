@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./base.css">
+  <style>
+    .container {
+      width: 900px;
+      margin: 0 auto;
+    }
+
+    .con-top {
+      margin-bottom: 50px;
+    }
+
+    .con-top textarea {
+      outline: none;
+      width: 100%;
+      height: 120px;
+      resize: none;
+      padding: 10px 0 0 20px;
+      margin-bottom: 5px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+
+    .con-top .con-top-r {
+      float: right;
+    }
+
+    .con-top .con-top-r input {
+      float: right;
+      cursor: pointer;
+      width: 100px;
+      height: 30px;
+      background: rgb(0, 132, 255);
+      color: #fff;
+      font-size: 14px;
+      transition: all 0.6s;
+    }
+
+    .con-top .con-top-r input:hover {
+      background: rgb(0, 225, 255);
+    }
+
+    .con-top .con-top-r p {
+      float: right;
+      font-size: 16px;
+      line-height: 30px;
+      padding-right: 5px;
+    }
+
+    .con-top .con-top-r p span {
+      color: red;
+    }
+
+    .con-bottom ul li {
+      padding: 20px 0;
+      border-bottom: 1px dashed #cccccc;
+    }
+
+    .con-bottom ul li .info {
+      position: relative;
+    }
+
+    .con-bottom ul li .info img {
+      width: 80px;
+      border-radius: 50%;
+    }
+
+    .con-bottom ul li .info span {
+      position: absolute;
+      left: 100px;
+      top: 20px;
+      color: #000;
+      font-size: 16px;
+    }
+
+    .con-bottom ul li .info p {
+      position: absolute;
+      left: 100px;
+      top: 40px;
+      color: #ccc;
+    }
+
+    .con-bottom ul li .content {
+      padding-left: 100px;
+      line-height: 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="con-top clearfix">
+      <img src="../代码/案例/发布微博/images/tip.png" alt="">
+      <textarea cols="30" rows="5" maxlength="200" placeholder="说点什么吧..."></textarea>
+      <div class="con-top-r">
+        <input type="submit" value="发布">
+        <p><span>0 </span>/ 200</p>
+      </div>
+    </div>
+    <div class="con-bottom">
+    </div>
+  </div>
+  <script>
+    // ----------------------------1、获取文本域,输入内容的长度赋值给span
+    // ---获取文本域
+    var area = document.querySelector('textarea');
+    // ---获取span标签
+    var count = document.querySelector('.con-top-r span')
+    area.oninput = function () {
+      count.innerText = this.value.length;
+    }
+
+    // -----------------------------2、日期格式化
+    function getTime() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      month = month < 10 ? '0' + month : month;
+      var day = date.getDate();
+      day = day < 10 ? '0' + day : day;
+
+      var hours = date.getHours();
+      hours = hours < 10 ? '0' + hours : hours;
+
+      var minutes = date.getMinutes();
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+
+      var seconds = date.getSeconds();
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+
+      var str = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+      return str;
+    };
+
+    // ----------------------------3、点击发布创建li并添加到ul中
+    // ---获取发布按钮
+    var btn = document.querySelector('.con-top .con-top-r input');
+    // ---获取ul的父元素div，并添加ul标签
+    var div = document.querySelector('.con-bottom');
+    var ul = document.createElement('ul');
+    div.appendChild(ul);
+    // ---添加li标签，并赋值
+    btn.onclick = function () {
+      // 获取文本域的内容
+      var v = area.value;
+      // 判断area.value长度是否为0
+      if (v.length == 0) {
+        alert('内容不能为空');
+      } else {
+        // 添加li标签到ul标签的最前面
+        // var lis = document.querySelectorAll('li');
+        var li = document.createElement('li');
+        ul.insertBefore(li, ul.children[0]);
+        // 3.5 创建一个类名为info的div，追加到li中
+        var info = document.createElement('div');
+        info.className = 'info';
+        li.appendChild(info);
+        // 3.5.1 创建一个img元素，追加到类名为info的div中
+        var img = document.createElement('img');
+        info.appendChild(img);
+        // 3.5.2 设置img的src
+        img.src = '../代码/案例/发布微博/images/03.jpg';
+        // 3.5.3 创建一个span元素，追加到类名为info的div中
+        var span = document.createElement('span');
+        info.appendChild(span);
+        // 3.5.4 设置span的内容
+        span.innerText = '百里守约';
+        // 3.5.5 创建一个p元素，追加到类名为info的div中
+        var p = document.createElement('p');
+        info.appendChild(p);
+        // 3.5.6 把当前时间设置给p元素
+        p.innerText = '发布于：' + getTime();
+        // 3.6 创建一个类名为content的div,追加到li中
+        var content = document.createElement('div');
+        content.className = 'content';
+        li.appendChild(content);
+        // 3.7 设置类名为content的div的innerText为文本域的内容
+        content.innerText = v;
+        // 3.8 发布成功后，清空文本域，数量重置为0
+        area.value = '';
+        count.innerText = '0';
+      }
+    }
+  </script>
+</body>
+
+</html>

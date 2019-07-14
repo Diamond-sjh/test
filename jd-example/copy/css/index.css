@@ -1,0 +1,183 @@
+/*
+* @Author: dhl
+* @Date:   2018-10-19 18:03:29
+* @Last Modified by:   dhl
+* @Last Modified time: 2018-10-20 15:36:08
+*/
+
+/* 流式布局: 设置为百分比; */
+.m_body {
+	
+	max-width: 768px;
+	min-width: 320px;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.top_fix_nav {
+	max-width: 768px;
+	min-width: 320px;
+	width: 100%;
+	height: 45px;
+	background-color: rgba(201, 21, 35, 1);
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+	top: 0;
+	padding: 5px 30px 5px 60px;
+	box-sizing: border-box;
+}
+
+.top_fix_nav  input {
+	width: 100%;
+	height: 35px;
+	border-radius: 5px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.logo {
+	width: 56px;
+	height: 23px;
+
+	background: url("../img/jd-sprites.png") no-repeat 0px -108px;
+
+	background-size: 200px 200px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+
+.top_fix_nav a {
+	width: 30px;
+	height: 45px;
+	display: block;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	right: 0;
+	color: #fff;
+}
+
+
+
+/* 广告区域 */
+.banner {
+	width: 100%;
+	margin-top: 45px;
+}
+
+.banner a {
+	width: 100%;
+	display: block;
+}
+
+.banner a img {
+	width: 100%;
+}
+
+
+/* 导航 */
+.nav_item {
+	width: 100%;
+	border-bottom: 2px solid #ccc;
+}
+
+.nav_item li {
+	float: left;
+	width: 25%;
+	margin: 5px 0px;
+}
+.nav_item li a {
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+.nav_item li img {
+	width: 40px;
+	height: 40px;
+}
+.nav_item li span {
+	display: block;
+}
+
+
+/* 卡券 */
+.crads {
+	width: 100%;
+	position: relative;
+}
+
+.crads img {
+	width: 100%;
+}
+.crads ul {
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+.crads li {
+	float: left;
+	width: 50%;
+}
+.crads  a {
+	width: 100%;
+	display: block;
+}
+.crads  a img {
+	width: 100%;
+}
+
+
+/* 商品展示 */
+.product {
+	width: 100%;
+}
+.product ul {
+	width: 100%;
+}
+
+.product li {
+	width: 50%;
+	float: left;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+
+.product li a  {
+	display: block;
+	width: 100%;
+	border-bottom: 2px solid #666;
+}
+
+.product li img {
+	width: 100%;
+}
+
+
+.product li p {
+	 width: 100%;
+	 height: 40px;
+	 line-height: 20px;
+
+	 /* 设置文字超出隐藏 */
+	 overflow: hidden;
+	 /* 让文字在容器的末尾换行 */
+	 word-break: break-all;
+	 /* 设置文字超出容器时候显示省略号 */
+	 text-overflow: ellipsis;
+	
+	 /* 设置页面中文字要显示多少行 */
+	-webkit-line-clamp: 2;
+
+	/* 文字显示方式,默认水平,设置文字显示方式为竖立方式 */
+	-webkit-box-orient: vertical;
+	/* 将盒子转为弹性盒子: 老版本的弹性盒子; */
+	display: -webkit-box;
+}
